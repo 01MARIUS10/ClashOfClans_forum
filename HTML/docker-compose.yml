@@ -1,0 +1,12 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:stable-alpine
+        container_name: template_
+        stdin_open: true
+        tty: true
+        ports: 
+            - "8088:80"
+        volumes:
+            # - "/app/node_modules" 
+            - "./:/usr/share/nginx/html/"

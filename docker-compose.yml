@@ -1,7 +1,10 @@
 version: '3'
 services:
     web:
-        build: .
+        build: 
+            context: ./app
+            dockerfile: Dockerfile
+        container_name: COC_front
         stdin_open: true
         tty: true
         ports: 
@@ -9,3 +12,13 @@ services:
         volumes:
             # - "/app/node_modules" 
             - "./app:/app"
+    nginx:
+        image: nginx:stable-alpine
+        container_name: template
+        stdin_open: true
+        tty: true
+        ports: 
+            - "8088:80"
+        volumes:
+            # - "/app/node_modules" 
+            - "./HTML:/usr/share/nginx/html/"

@@ -1,28 +1,24 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 
+import Button from '../Cells/Button.vue';
+import LinkPage from '../Cells/LinkPage.vue';
 </script>
 
 <template>
-    <nav>
+    <nav class="flex justify-between w-full border border-slate-300" >
         <div class="logo">
             <img src="" alt="LOGO">
         </div>
-        <div class="">
-            <div class="navigation">
-                <RouterLink>
-                    Home
-                </RouterLink>
-                <RouterLink>
-                    Tutorial
-                </RouterLink>
-                <RouterLink>
-                    Forum
-                </RouterLink>
+        <div class="flex">
+            <div class="navigation flex">
+                <LinkPage to="#" :active="true" text="Home"/>
+                <LinkPage to="#" :active="true" text="Tutorial"/>
+                <LinkPage to="#" :active="true" text="Forum"/>
             </div>
             <div class="account">
-                <RouterLink >
-                    <img src="" alt="profil">
+                <RouterLink  to="#">
+                    <Button />
                 </RouterLink>
             </div>
         </div>

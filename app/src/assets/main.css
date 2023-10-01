@@ -1,9 +1,14 @@
 @import './base.css';
 
+body{
+  width: 100lvw;
+  overflow-x: hidden;
+  min-height: 100lvh;
+}
+#app{
+  width: 100%;
+}
 
 @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+  
 }
