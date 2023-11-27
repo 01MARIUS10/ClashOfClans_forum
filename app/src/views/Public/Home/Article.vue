@@ -1,6 +1,6 @@
 <script setup>
-import Button from '../../components/Cells/Button.vue';
-import Date from '../../components/Cells/Date.vue';
+import Button from '@/components/Cells/Button.vue';
+import Date from '@/components/Cells/Date.vue';
 let props = defineProps({
     img:{
         default:'/img/post.png'
@@ -32,7 +32,7 @@ let props = defineProps({
         <div class="flex flex-col justify-center gap-3 my-6">
             <div class="h-10">
                 <h1 class="text-2xl">{{ props.title }}</h1>
-                <Tag />
+                <!-- <Tag /> -->
             </div>
             <p class="h-full">{{ props.text }}</p>
             <div class="h-14 flex justify-between items-center">

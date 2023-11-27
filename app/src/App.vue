@@ -1,19 +1,19 @@
 <script setup>
 
 import { RouterView } from 'vue-router'
-import Nav from './components/Molecules/Nav.vue';
+import NavBar from './components/Molecules/NavBar.vue';
 import Footer from './components/Molecules/Footer.vue';
 </script>
 
 <template>
-  <div class="content w-100 ">
-    <div class="nav flex px-20 border border-slate-500 py-5">
-      <Nav />
+  <div class="content w-full min-h-screen flex flex-col ">
+    <div class="nav z-10 flex px-28 border border-slate-500 py-5 flex justify-center ">
+      <NavBar class="max-w-screen-xl"/>
     </div>
-    <div class="px-20 border border-slate-500">
-      <RouterView class="border border-slate-300"/>
+    <div class="border border-slate-500 relative flex justify-center grow">
+      <RouterView class="border border-slate-300 "/>
     </div>
-    <div class="footer">
+    <div class="footer px-">
       <Footer />
     </div>
   </div>
@@ -22,5 +22,7 @@ import Footer from './components/Molecules/Footer.vue';
 <style >
 .content{
   background-image: url('/img/pattern.png');
+  background-color: rgba(220,220,220,.38);
 }
+
 </style>

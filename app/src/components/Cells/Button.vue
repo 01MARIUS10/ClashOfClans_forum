@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 let props = defineProps({
     icon:{
         default: '/icons/ic26.png'
@@ -7,12 +8,21 @@ let props = defineProps({
         default: 'template'
     },
     color:{
-        default: ''
+        default: 'blue'
     },
 })
+const propsColorSet = {
+    'blue':['#5260d5','#42a4f3'],
+    'orange':['#ffa857','#fe5a73']
+}
+let background = computed(()=>{
+    let colorUse = propsColorSet[props.color]? propsColorSet[props.color]:'blue';
+    return `background : linear-gradient(to right, ${colorUse[0]}, ${colorUse[1]});`;
+})
 </script>
+
 <template>
-    <button class="px-5 py-4 flex items-center">
+    <button class="px-5 py-4 flex items-center" :style="background">
         <img :src="props.icon" alt="icon" class="w-1/3 p-3">
         <span class="w-2/3">{{ props.text }}</span>
     </button>
@@ -20,7 +30,6 @@ let props = defineProps({
 
 <style scoped>
 button{
-    background: linear-gradient(to right, #ffa857, #fe5a73);
     padding: 0px 10px;
     color: #fff;
     border-radius: 3px;
@@ -31,7 +40,6 @@ button{
     text-decoration: none;
     font-size: 13px;
     font-weight: 600;
-    /* display: block; */
     float: left;
     transition: .5s;
     line-height: 45px;

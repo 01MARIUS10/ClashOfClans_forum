@@ -15,7 +15,7 @@ let props = defineProps({
 </script>
 <template>
     <RouterLink :to="props.to" class="flex items-center">
-        <p class="mr-4" :class="props.active? 'border border-0 border-b-4 border-neutral-400':''">
+        <p class="mr-8 text-gray-400 " :class="props.active? 'border border-0 border-b-4 border-blue-500':''">
             <span>{{ props.text }}</span>
         </p>
     </RouterLink>
@@ -24,5 +24,7 @@ let props = defineProps({
 p{
     font-size: 14px;
     font-weight: 600;
+    font-family: var(--font-family);
 }
+
 </style>
