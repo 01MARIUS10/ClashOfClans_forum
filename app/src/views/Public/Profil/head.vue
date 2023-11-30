@@ -1,6 +1,6 @@
 <script setup>
 import Chips from '@/components/Cells/Chips.vue';
-import { getAllClanTag,findTagByName } from "@/services/tags";
+import { getAllClanTag,findTagByName } from "@/services/tags/http.js";
 
 let props = defineProps({
     clan: {

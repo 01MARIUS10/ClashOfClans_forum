@@ -1,5 +1,8 @@
 <script setup>
 import { computed, reactive, ref } from 'vue'
+import { getDonationIcon ,getTrophyIcon , getClanIcon } from '@/services/tags/index.js'
+
+
 let props = defineProps({
   id: {
     type: Number,
@@ -18,7 +21,7 @@ let props = defineProps({
     default() {
       return {
         expLevel: 200,
-        name: 'valdo'
+        name: "valdo"
       }
     }
   }
@@ -47,13 +50,10 @@ let infoMember = computed(() => {
     rang: props.item.clanRank,
     xp: props.item.expLevel,
     trophies: props.item.trophies,
-
-    donation: props.item.donation,
-    donationRecu: props.item.donationReceived,
-
+    donation: props.item.donations,
+    donationRecu: props.item.donationsReceived,
     leagueName: props.item.league.name,
     leagueImage: props.item.league.iconUrls.small,
-
     leagueOuvrierName: props.item.league.name
   }
 })
@@ -64,13 +64,15 @@ let handleClickInfo = () => {
   console.log('item', props.item)
 }
 
+
+
 </script>
 
 <template>
-  <div class="px-28 my-12">
-    <div class="flex mb-1" :class="itemClass">
-      <div class="mx-12" v-if="!props.noWay">
-        <img :src="itemWayImage" alt="" width="450" />
+  <div class="mx-12 px-28 my-12 ">
+    <div class="flex mb-1 w-[calc(100%-180px)]" :class="itemClass">
+      <div class="w-full ml-[calc(180px*0.9)]" v-if="!props.noWay">
+        <img :src="itemWayImage" alt="" class="w-full" />
       </div>
     </div>
     <div class="flex" :class="itemHdvClass">
@@ -78,17 +80,50 @@ let handleClickInfo = () => {
         <div class="" @click="() => handleClickInfo()">
           <img src="images/HDV/hdv12.webp" alt="" width="180" class="" />
         </div>
+        <p class="text-center font-semibold text-2xl text-gray-800">{{ infoMember.name }}</p>
         <Transition name="bounce">
-          <div class="absolute min-w-[180px]" :class="itemInfoClass" v-if="showInfo">
-            <div class="block bg-slate-100 p-4 rounded my-2">
-              <div class='card-title'>
-                <p>{{ infoMember.name }}</p>
+          <div class="absolute min-w-[255px] bg-gray-800 p-4 rounded-xl" :class="itemInfoClass" v-if="showInfo">
+            <div class="block border-slate-600 border-2 p-4 rounded-lg my-1 text-slate-300">
+              <div class='card-title mb-4 flex justify-between'>
+                <div class="">
+                  <p class="font-semibold text-2xl text-white">{{ infoMember.name }}</p>
+                  <p class="text-red-400">{{ infoMember.role }}</p>
+                  <p class="">{{ infoMember.tag }}</p>
+                </div>
+                <div class="">
+                  <img :src="infoMember.leagueImage" alt="" width="40">
+                </div>
               </div>
               <div class='card-text'>
-                <p>{{ infoMember.leagueName }}</p>
-                <p>{{ infoMember.leagueName }}</p>
-                <p>{{ infoMember.leagueName }}</p>
-                <p>{{ infoMember.leagueName }}</p>
+                <p class="flex items-center	">
+                  <span>
+                    <img :src="getTrophyIcon().medium" alt="" width="20" height="20">
+                  </span>
+                  <span  class="ml-2">Trophies: </span>
+                  <span>{{ infoMember.trophies }}</span>
+                </p>
+                <p class="flex items-center	">
+                  <span>
+                    <img :src="getClanIcon().medium" alt="" width="20" height="20">
+                  </span>
+                  <span  class="ml-2">XP : </span>
+                  <span>{{ infoMember.xp }}</span>
+                </p>
+                
+                <p class="flex items-center	">
+                  <span>
+                    <img :src="getDonationIcon().medium" alt="" width="20" height="20">
+                  </span>
+                  <span  class="ml-2">Donation :</span>
+                  <span>{{ infoMember.donation }}</span>
+                </p>
+                <p class="flex items-center	">
+                  <span>
+                    <img :src="getDonationIcon().medium" alt="" width="20" height="20">
+                  </span>
+                  <span  class="ml-2">Donation recue:</span>
+                  <span>{{ infoMember.donationRecu }}</span>
+                </p>
               </div>
             </div>
           </div>

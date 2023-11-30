@@ -1,11 +1,10 @@
 <script setup>
-import { findTagByName } from '@/services/tags.js'
-import { computed } from 'vue';
+import { findTagByName } from '@/services/tags/http.js'
 let props = defineProps({
     data: {
         type: Object,
         default: [
-
+            {}
         ]
     }
 })

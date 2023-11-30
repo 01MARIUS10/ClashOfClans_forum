@@ -1,5 +1,5 @@
 <script setup>
-import { getAllClanTag } from "../../services/tags";
+import { getAllClanTag } from "@/services/tags/http.js";
 import { computed } from "vue";
 let props = defineProps({
     tag: {

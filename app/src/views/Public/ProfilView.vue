@@ -43,6 +43,10 @@ let activeComponent = computed(() => {
   console.log(a)
   return a.component
 })
+
+
+
+
 function activeClass(str) {
   return activeTabs.value === str ? 'border border-slate-300' : ''
 }
