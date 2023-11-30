@@ -78,7 +78,7 @@ let handleClickInfo = () => {
     <div class="flex" :class="itemHdvClass">
       <div class="w-[180px] relative">
         <div class="" @click="() => handleClickInfo()">
-          <img src="images/HDV/hdv12.webp" alt="" width="180" class="" />
+          <img src="/images/HDV/hdv12.webp" alt="" width="180" class="" />
         </div>
         <p class="text-center font-semibold text-2xl text-gray-800">{{ infoMember.name }}</p>
         <Transition name="bounce">
