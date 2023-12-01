@@ -17,7 +17,7 @@ import LinkPage from '../Cells/LinkPage.vue';
                 <LinkPage to="/profil" :active="false" text="Profil"/>
             </div>
             <div class="ml-6">
-                <RouterLink  to="#">
+                <RouterLink  to="/ui">
                     <Button color="orange" class="me-4" icon="/icons/ic22.png" text="Voir la Tutoriel"/>
                     <Button text="Se connecter"/>
                 </RouterLink>
