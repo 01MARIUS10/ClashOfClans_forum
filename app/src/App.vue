@@ -1,8 +1,22 @@
 <script setup>
-
+import "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
 import { RouterView } from 'vue-router'
 import NavBar from './components/Molecules/NavBar.vue';
 import Footer from './components/Molecules/Footer.vue';
+
+ 
+        /* Add "https://api.ipify.org?format=json" statement
+       this will communicate with the ipify servers in
+       order to retrieve the IP address $.getJSON will
+       load JSON-encoded data from the server using a
+       GET HTTP request */
+ 
+        $.getJSON("https://api.ipify.org?format=json",
+            function (data) {
+ 
+                // Setting text of element P with id gfg
+                console.log('ip is',data.ip)
+            })
 </script>
 
 <template>
