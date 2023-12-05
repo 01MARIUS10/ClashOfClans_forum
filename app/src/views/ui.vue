@@ -2,14 +2,16 @@
 import { getAllTags } from '@/services/tags/http.js'
 import { getHdvImage } from '@/services/hdv/http'
 
+import testRequestVue from '@/components/Molecules/testRequest.vue';
+
 
 import { getClan } from '@/services/clan/http';
 import { onMounted } from 'vue';
 
-onMounted(()=>{
-  let data = getClan('#2LVPJRGLV')
-  console.log(data)
-})
+// onMounted(()=>{
+//   let data = getClan('#2LVPJRGLV')
+//   console.log(data)
+// })
 let t = getAllTags()
 
 // import {getTag} from "@/services/tags.js"
@@ -34,6 +36,9 @@ let t = getAllTags()
       <div class="border-red-200">io
         <img :src="getHdvImage(10)" alt="" width="600"/>
       </div>
+    </div>
+    <div class="m-auto p-5 max-w-[400px]">
+      <testRequestVue />
     </div>
   </div>
 </template>
